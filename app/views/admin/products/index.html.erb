@@ -1,0 +1,35 @@
+<h1>Admin produktov</h1>
+
+<p>
+  <%= link_to "Pridať produkt", new_admin_product_path, class: "btn btn-primary" %>
+</p>
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th>Obrazok</th>
+      <th>Nazov produktu</th>
+      <th>Popis</th>
+      <th>Cena</th>
+      <th>Obrazok</th>
+      <th>Upravit</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+
+
+   <% @products.each do |product| %>
+      <tr>
+        <td><%= product.image_url %></td>
+        <td><%= link_to product.name, edit_admin_product_path(product) %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price%></td>
+        <td><%= product.image_url %></td>
+        <td><%= link_to "Upraviť produkt", edit_admin_product_path(product) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
